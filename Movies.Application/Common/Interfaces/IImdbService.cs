@@ -1,5 +1,4 @@
-﻿
-using Movies.Application.Common.Models.ApiModels;
+﻿using Movies.Application.Common.Models.ApiModels;
 
 namespace Movies.Application.Common.Interfaces
 {

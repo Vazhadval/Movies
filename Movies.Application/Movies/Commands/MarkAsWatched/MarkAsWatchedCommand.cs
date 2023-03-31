@@ -1,14 +1,6 @@
-﻿using Domain.Entities;
-using MediatR;
+﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Movies.Application.Common.Exceptions;
 using Movies.Application.Common.Interfaces;
-using Movies.Application.Movies.Commands.AddToWatchList;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Movies.Application.Movies.Commands.MarkAsWatched
 {

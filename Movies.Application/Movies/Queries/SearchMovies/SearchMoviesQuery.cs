@@ -1,5 +1,4 @@
-﻿using Application.Movies.Queries.SearchMovies;
-using AutoMapper;
+﻿using AutoMapper;
 using MediatR;
 using Movies.Application.Common.Interfaces;
 using Movies.Application.Common.Models.ApiModels;

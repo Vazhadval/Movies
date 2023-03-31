@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Movies.Application.Common.Interfaces;
-using Newtonsoft.Json;
 using Movies.Application.Common.Models.ApiModels;
+using Newtonsoft.Json;
 
 namespace Movies.Infrastructure.Services
 {

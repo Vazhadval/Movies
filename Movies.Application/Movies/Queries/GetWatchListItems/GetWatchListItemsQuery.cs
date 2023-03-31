@@ -2,13 +2,6 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Movies.Application.Common.Interfaces;
-using Movies.Application.Common.Models.ApiModels;
-using Movies.Application.Movies.Queries.SearchMovies;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Movies.Application.Movies.Queries.GetWatchListItems
 {
