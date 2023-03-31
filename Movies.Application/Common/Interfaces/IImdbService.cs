@@ -5,6 +5,7 @@ namespace Movies.Application.Common.Interfaces
 {
     public interface IImdbService
     {
-        Task<SearchMoviesApiResponse> SearchMovies(string SearchTerm);
+        Task<SearchMoviesApiResponse> SearchMovies(string searchTerm);
+        Task<GetSingleMovieByIdApiResponse> GetSingleMovieById(string id);
     }
 }

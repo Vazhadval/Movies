@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Movies.Application.Common.Interfaces;
+using Movies.Persistence.Interceptors;
 
 namespace Movies.Persistence
 {
@@ -15,8 +16,8 @@ namespace Movies.Persistence
 
             services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
 
+            services.AddScoped<AuditableEntitySaveChangesInterceptor>();
             services.AddScoped<ApplicationDbContextInitialiser>();
-
 
 
             return services;

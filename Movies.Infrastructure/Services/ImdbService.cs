@@ -8,19 +8,34 @@ namespace Movies.Infrastructure.Services
     public class ImdbService : IImdbService
     {
         private readonly HttpClient _httpClient;
-        private readonly IConfiguration _configuration;
+        private readonly string _apiKey;
+        private readonly string _urlSearchMovies;
+        private readonly string _urlGetMovie;
 
         public ImdbService(HttpClient httpClient, IConfiguration configuration)
         {
             _httpClient = httpClient;
-            _configuration = configuration;
+            _apiKey = configuration["ImdbApiSettings:ApiKey"];
+            _urlSearchMovies = configuration["ImdbApiSettings:UrlSearchMovies"];
+            _urlGetMovie = configuration["ImdbApiSettings:UrlGetSingleMovieByID"];
         }
 
-        public async Task<SearchMoviesApiResponse> SearchMovies(string SearchTerm)
+        public async Task<GetSingleMovieByIdApiResponse> GetSingleMovieById(string id)
         {
-            var apiKey = _configuration["ImdbApiSettings:ApiKey"];
-            var urlMoviesSearch = _configuration["ImdbApiSettings:UrlSearchMovies"];
-            var response = await _httpClient.GetAsync($"{urlMoviesSearch}/{apiKey}/{SearchTerm}");
+            var response = await _httpClient.GetAsync($"{_urlGetMovie}/{_apiKey}/{id}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<GetSingleMovieByIdApiResponse>(responseContent);
+            }
+
+            return null;
+        }
+
+        public async Task<SearchMoviesApiResponse> SearchMovies(string searchTerm)
+        {
+            var response = await _httpClient.GetAsync($"{_urlSearchMovies}/{_apiKey}/{searchTerm}");
 
             if (response.IsSuccessStatusCode)
             {

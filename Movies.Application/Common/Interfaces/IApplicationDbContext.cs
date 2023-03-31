@@ -5,7 +5,7 @@ namespace Movies.Application.Common.Interfaces
 {
     public interface IApplicationDbContext
     {
-        DbSet<WhatchList> WhatchLists { get; }
+        DbSet<WatchListItem> WatchListItems { get; }
 
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
