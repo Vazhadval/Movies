@@ -23,13 +23,13 @@ namespace Movies.API.Controllers
         }
 
         [HttpPost("AddToWatchList")]
-        public async Task<ActionResult<AddToWatchListResult>> AddToWatchList([FromQuery] AddToWatchListCommand command)
+        public async Task<ActionResult<AddToWatchListResult>> AddToWatchList([FromBody] AddToWatchListCommand command)
         {
             return Ok(await Mediator.Send(command));
         }
 
         [HttpPut("MarkAsWatched")]
-        public async Task<ActionResult<MarkAsWatchedResult>> MarkAsWatched([FromQuery] MarkAsWatchedCommand command)
+        public async Task<ActionResult<MarkAsWatchedResult>> MarkAsWatched([FromBody] MarkAsWatchedCommand command)
         {
             return Ok(await Mediator.Send(command));
         }

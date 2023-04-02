@@ -9,7 +9,6 @@ namespace Movies.Application.Movies.Commands.MarkAsWatched
         public string MovieId { get; init; }
 
         public int UserId { get; init; }
-        public bool IsWatched { get; init; } = true;
     }
 
     public class MarkAsWatchedCommandHandler : IRequestHandler<MarkAsWatchedCommand, MarkAsWatchedResult>
